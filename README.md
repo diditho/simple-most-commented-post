@@ -4,8 +4,8 @@ WordPress Simple Most Commented Post
 
 ## plugin structure
 /simple-most-commented-post\
-    */assets\
-    */includes\
+    */assets*\
+    */includes*\
         **/class-simple-most-commented-post.php\
         **/class-simple-most-commented-post-widget.php\
     */languages\
