@@ -13,7 +13,7 @@ class Simple_Most_Commented_Post_Widget extends WP_Widget {
     public function widget($args, $instance) {
         echo $args['before_widget'];
 
-        $post_count = get_option('simple_most_commented_post_count', 5);
+        $post_count = !empty($instance['post_count']) ? absint($instance['post_count']) : 5;
         $excerpt_length = !empty($instance['excerpt_length']) ? absint($instance['excerpt_length']) : 20;
 
         $query_args = array(
@@ -29,7 +29,10 @@ class Simple_Most_Commented_Post_Widget extends WP_Widget {
                     <div class="simple-widget-content">
                         <h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
                         <p><?php echo wp_trim_words(get_the_excerpt(), $excerpt_length); ?></p>
-                        <p><?php echo get_the_date(); ?></p>
+                        <p>
+                            <?php echo get_comments_number(); ?> <?php _e('Comments', 'diditho-simple-most-commented-post'); ?> | 
+                            <?php echo get_the_date(); ?>
+                        </p>
                     </div>
                 </div>
                 <style>
@@ -38,6 +41,9 @@ class Simple_Most_Commented_Post_Widget extends WP_Widget {
                     }
                     .simple-widget-content h4 {
                         margin: 0 0 10px;
+                    }
+                    .simple-widget-content p {
+                        margin: 0 0 5px;
                     }
                 </style>
             <?php endwhile;
@@ -49,8 +55,13 @@ class Simple_Most_Commented_Post_Widget extends WP_Widget {
     }
 
     public function form($instance) {
+        $post_count = !empty($instance['post_count']) ? $instance['post_count'] : 5;
         $excerpt_length = !empty($instance['excerpt_length']) ? $instance['excerpt_length'] : 20;
         ?>
+        <p>
+            <label for="<?php echo $this->get_field_id('post_count'); ?>"><?php _e('Number of Posts:', 'diditho-simple-most-commented-post'); ?></label>
+            <input type="number" id="<?php echo $this->get_field_id('post_count'); ?>" name="<?php echo $this->get_field_name('post_count'); ?>" value="<?php echo esc_attr($post_count); ?>" min="1" />
+        </p>
         <p>
             <label for="<?php echo $this->get_field_id('excerpt_length'); ?>"><?php _e('Excerpt Length:', 'diditho-simple-most-commented-post'); ?></label>
             <input type="number" id="<?php echo $this->get_field_id('excerpt_length'); ?>" name="<?php echo $this->get_field_name('excerpt_length'); ?>" value="<?php echo esc_attr($excerpt_length); ?>" min="1" />
@@ -60,6 +71,7 @@ class Simple_Most_Commented_Post_Widget extends WP_Widget {
 
     public function update($new_instance, $old_instance) {
         $instance = array();
+        $instance['post_count'] = (!empty($new_instance['post_count'])) ? absint($new_instance['post_count']) : 5;
         $instance['excerpt_length'] = (!empty($new_instance['excerpt_length'])) ? absint($new_instance['excerpt_length']) : 20;
 
         return $instance;
