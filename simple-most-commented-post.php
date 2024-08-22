@@ -3,7 +3,7 @@
  * Plugin Name: Simple Most Commented Post
  * Plugin URI: https://diditho.com/wordpress-simple-most-commented-post
  * Description: A widget to show the latest post with the most commented post.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Banuardi Nugroho
  * Author URI: https://diditho.com
  * Text Domain: diditho-simple-most-commented-post
@@ -16,7 +16,7 @@ if (!defined('WPINC')) {
 }
 
 // Define plugin version.
-define('SIMPLE_MOST_COMMENTED_POST_VERSION', '1.0.0');
+define('SIMPLE_MOST_COMMENTED_POST_VERSION', '1.0.1');
 
 // Include the core plugin class.
 require plugin_dir_path(__FILE__) . 'includes/class-simple-most-commented-post.php';
