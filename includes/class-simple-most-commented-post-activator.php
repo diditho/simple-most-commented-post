@@ -8,4 +8,3 @@ class Simple_Most_Commented_Post_Activator {
         }
     }
 }
-

@@ -1,4 +1,3 @@
-
 <div class="wrap">
     <h1><?php _e('Simple Most Commented Post Settings', 'diditho-simple-most-commented-post'); ?></h1>
     <form method="post" action="options.php">

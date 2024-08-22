@@ -2,12 +2,15 @@
 
 class Simple_Most_Commented_Post_Widget extends WP_Widget {
 
+    public $some_property;
+
     public function __construct() {
         parent::__construct(
             'simple_most_commented_post_widget',
             __('Simple Most Commented Post', 'diditho-simple-most-commented-post'),
             array('description' => __('A widget to show the latest post with the most commented post.', 'diditho-simple-most-commented-post'))
         );
+        $this->some_property = 'value'; // Initialize the property
     }
 
     public function widget($args, $instance) {
