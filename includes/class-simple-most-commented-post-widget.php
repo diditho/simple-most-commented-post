@@ -13,6 +13,11 @@ class Simple_Most_Commented_Post_Widget extends WP_Widget {
     public function widget($args, $instance) {
         echo $args['before_widget'];
 
+        // Display the widget title if it's set
+        if (!empty($instance['title'])) {
+            echo $args['before_title'] . apply_filters('widget_title', $instance['title']) . $args['after_title'];
+        }
+
         $post_count = !empty($instance['post_count']) ? absint($instance['post_count']) : 5;
         $excerpt_length = !empty($instance['excerpt_length']) ? absint($instance['excerpt_length']) : 20;
 
@@ -55,9 +60,14 @@ class Simple_Most_Commented_Post_Widget extends WP_Widget {
     }
 
     public function form($instance) {
+        $title = !empty($instance['title']) ? $instance['title'] : __('Most Commented Posts', 'diditho-simple-most-commented-post');
         $post_count = !empty($instance['post_count']) ? $instance['post_count'] : 5;
         $excerpt_length = !empty($instance['excerpt_length']) ? $instance['excerpt_length'] : 20;
         ?>
+        <p>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'diditho-simple-most-commented-post'); ?></label>
+            <input type="text" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" value="<?php echo esc_attr($title); ?>" />
+        </p>
         <p>
             <label for="<?php echo $this->get_field_id('post_count'); ?>"><?php _e('Number of Posts:', 'diditho-simple-most-commented-post'); ?></label>
             <input type="number" id="<?php echo $this->get_field_id('post_count'); ?>" name="<?php echo $this->get_field_name('post_count'); ?>" value="<?php echo esc_attr($post_count); ?>" min="1" />
@@ -71,6 +81,7 @@ class Simple_Most_Commented_Post_Widget extends WP_Widget {
 
     public function update($new_instance, $old_instance) {
         $instance = array();
+        $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
         $instance['post_count'] = (!empty($new_instance['post_count'])) ? absint($new_instance['post_count']) : 5;
         $instance['excerpt_length'] = (!empty($new_instance['excerpt_length'])) ? absint($new_instance['excerpt_length']) : 20;
 
