@@ -13,8 +13,10 @@ class Simple_Most_Commented_Post_Widget extends WP_Widget {
     public function widget($args, $instance) {
         echo $args['before_widget'];
 
+        $post_count = get_option('simple_most_commented_post_count', 5);
+
         $query_args = array(
-            'posts_per_page' => 1,
+            'posts_per_page' => $post_count,
             'orderby' => 'comment_count',
             'order' => 'DESC'
         );
