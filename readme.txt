@@ -1,5 +1,5 @@
 === Simple Most Commented Post ===
-Contributors: yourusername
+Contributors: diditho
 Tags: comments, posts, widget, most commented, sidebar
 Requires at least: 5.6
 Tested up to: 6.2
@@ -54,10 +54,6 @@ You can leave the title field blank in the widget settings if you don't want a t
 
 = 1.0.0 =
 Initial release of Simple Most Commented Post.
-
-== Arbitrary section ==
-
-You can remove this section if you don't have anything to add. 
 
 == License ==
 
