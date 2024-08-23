@@ -1,14 +1,29 @@
 <?php
 /**
- * Plugin Name: Simple Most Commented Post
- * Plugin URI: https://diditho.com/wordpress-simple-most-commented-post
- * Description: A widget to show the latest post with the most commented post.
- * Version: 1.0.1
- * Author: Banuardi Nugroho
- * Author URI: https://diditho.com
- * Text Domain: diditho-simple-most-commented-post
- * Domain Path: /languages
- */
+* Plugin Name: Simple Most Commented Post
+* Plugin URI: https://diditho.com/wordpress-simple-most-commented-post
+* Description: A widget to show the latest post with the most commented post.
+* Version: 1.0.1
+* Author: Banuardi Nugroho
+* Author URI: https://diditho.com
+* Text Domain: diditho-simple-most-commented-post
+* Domain Path: /languages
+* License: GPL v3 or later
+* License URI: https://www.gnu.org/licenses/gpl-3.0.html
+* 
+* Simple Most Commented Post is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 3 of the License, or
+* (at your option) any later version.
+* 
+* Simple Most Commented Post is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+* 
+* You should have received a copy of the GNU General Public License
+* along with Simple Most Commented Post. If not, see <https://www.gnu.org/licenses/>. 
+*/
 
 // If this file is called directly, abort.
 if (!defined('WPINC')) {
