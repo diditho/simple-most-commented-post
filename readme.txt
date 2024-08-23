@@ -3,7 +3,7 @@ Contributors: diditho
 Tags: comments, posts, widget, most commented, sidebar
 Requires at least: 5.6
 Tested up to: 6.2
-Stable tag: 1.0.0
+Stable tag: 1.0.5
 Requires PHP: 7.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -47,12 +47,12 @@ You can leave the title field blank in the widget settings if you don't want a t
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.0.5 =
 * Initial release.
 
 == Upgrade Notice ==
 
-= 1.0.0 =
+= 1.0.5 =
 Initial release of Simple Most Commented Post.
 
 == License ==
